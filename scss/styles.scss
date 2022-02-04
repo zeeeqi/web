@@ -1,0 +1,357 @@
+@use "variables" as var;
+@use "mixins" as mix;
+@use "media";
+@use "sass:color";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  scroll-behavior: smooth;
+  font-family: var.$fuente-principal, sans-serif;
+}
+
+body {
+  position: relative;
+}
+
+#toTop {
+  display: none;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #72038a;
+  width: 60px;
+  height: 60px;
+  z-index: 10;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 10px;
+
+  a {
+    font-size: var.$m;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-family: var.$fuente-secundaria;
+  }
+}
+
+.nav {
+  width: 100%;
+  align-items: center;
+  background-color: var.$blanco;
+  display: flex;
+  height: 100px;
+  justify-content: space-around;
+  position: fixed;
+  top: 30px;
+  z-index: 1000;
+
+  @include media.mobile() {
+    height: auto;
+    padding: 10px 0px;
+    flex-direction: column;
+    position:initial;
+  }
+
+  &__logo {
+    background-image: url(../img/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 95px;
+    width: 95px;
+  }
+
+  &__enlaces {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    justify-content: space-around;
+    max-width: 400px;
+
+    @include media.mobile() {
+      flex-direction: column;
+      display: none;
+    }
+    &__boton {
+      padding: 0 15px;
+      background-color: color.adjust(var.$gris, $alpha: -0.75);
+      border: 2px solid var.$gris;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var.$negro;
+      flex: 1;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 2px 2px 5px color.adjust(var.$secundario, $alpha: -0.7);
+      border-radius: 10px 0px;
+
+      @include media.mobile() {
+        padding: 0 5px;
+      }
+      &:hover {
+        transition: all ease 300ms;
+        transform: scale(1.05);
+        background-color: color.adjust(var.$gris, $alpha: -0.5);
+      }
+
+      &:active {
+        transition: transform ease 100ms;
+        transform: scale(0.98);
+      }
+    }
+  }
+
+  &--oscura {
+    border-bottom: 3px solid black;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.header {
+  max-height: 100vh;
+  width: 100%;
+  position: relative;
+  margin-bottom: 40px;
+
+  &__fecha {
+    bottom: 0;
+    height: auto;
+    max-width: 40%;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    @include media.mobile() {
+      max-width: 65%;
+    }
+  }
+}
+
+.symbol-target {
+  padding-top: 100px;
+  margin-top: -100px;
+  width: 1px;
+  display: inline-block;
+}
+
+.main {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  grid-auto-rows: 300px;
+  row-gap: 40px;
+
+  @include media.mobile() {
+    max-width: 1000px;
+    grid-template-columns: minmax(0px, 1fr);
+    grid-template-rows: 350px;
+    row-gap: 0px;
+    grid-auto-rows: 200px;
+    .main__icono--reto {
+      grid-row: 3/4;
+    }
+
+    .main__icono--comparte {
+      grid-row: 7/8;
+    }
+  }
+  &__apuntate {
+    grid-column: 1/-1;
+    text-align: center;
+
+    p {
+      font-family: var.$fuente-secundaria;
+      color: var.$secundario;
+      font-size: var.$xl;
+      margin-bottom: 40px;
+
+      @include media.mobile() {
+        font-size: var.$l;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      background-color: #72038a;
+      color: var.$blanco;
+      font-size: var.$m;
+      padding: 15px 50px;
+      border-radius: 10px;
+      max-width: 250px;
+      margin: 0 auto;
+      display: block;
+      &:hover {
+        transition: all ease 300ms;
+        transform: scale(1.05);
+      }
+
+      &:active {
+        transition: all linear 50ms;
+        transform: scale(0.98);
+      }
+    }
+  }
+
+  &__texto {
+    color: var.$secundario;
+    font-family: var.$fuente-secundaria;
+    align-self: center;
+    text-align: center;
+    font-size: 1.5rem;
+
+    h3 {
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__icono {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+
+    &--reto {
+      background-image: url(../img/reto.webp);
+    }
+
+    &--aprende {
+      background-image: url(../img/aprende.webp);
+    }
+
+    &--comparte {
+      background-image: url(../img/comparte.png);
+    }
+
+    &--premio {
+      background-image: url(../img/premio.webp);
+    }
+  }
+
+  &__almuerzo,
+  &__organiza {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    grid-column: 1/-1;
+  }
+
+  &__almuerzo {
+    background-image: url(../img/almuerzo.png);
+  }
+
+  &__organiza {
+    background-image: url(../img/organiza.png);
+    background-position: top left;
+  }
+}
+
+.footer--grid {
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0px, 1fr));
+  grid-template-rows: 30px;
+  grid-auto-rows: 100px;
+  h3 {
+    grid-column: 1/-1;
+  }
+
+  * {
+    @include media.mobile() {
+      text-align: center;
+      background-position: center;
+    }
+  }
+}
+
+.footer {
+  max-width: 1500px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr repeat(3, minmax(100px, 1fr));
+
+  @include media.mobile() {
+    grid-template-columns: 1fr;
+  }
+  &__organizan {
+    border-right: 2px solid var.$gris;
+    @include media.mobile() {
+      border-right: none;
+    }
+    &--utrera {
+      @include mix.back-img("../img/aytutrera.png");
+    }
+
+    &--ponce {
+      @include mix.back-img("../img/iesponce.png");
+    }
+
+    &--junta {
+      @include mix.back-img("../img/junta.png");
+      grid-column: 1/-1;
+    }
+  }
+
+  &__gestionan {
+    border-right: 2px solid var.$gris;
+    @include media.mobile() {
+      border-right: none;
+    }
+    &--cade {
+      @include mix.back-img("../img/cade.png");
+      grid-column: 1/-1;
+    }
+
+    &--ponce {
+      @include mix.back-img("../img/iesponce2.png");
+      grid-column: 1/-1;
+    }
+  }
+
+  &__colaboran {
+    border-right: 2px solid var.$gris;
+    @include media.mobile() {
+      border-right: none;
+    }
+    &--diego {
+      @include mix.back-img("../img/diego.png");
+      grid-column: 1/-1;
+    }
+    &--mocaibo {
+      @include mix.back-img("../img/mocaibo.png");
+      grid-column: 1/-1;
+    }
+  }
+
+  &__inscripciones {
+    &--qr {
+      @include mix.back-img("../img/qr.png");
+      grid-column: 1/-1;
+      grid-row: 2/4;
+    }
+  }
+
+  &__alumnado{
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+    grid-column: 1/-1;
+    font-size: 1.2rem;
+    border-top: 2px solid color.adjust(var.$gris, $alpha: 1);
+    width:100%;
+  }
+}

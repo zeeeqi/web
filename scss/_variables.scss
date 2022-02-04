@@ -1,0 +1,30 @@
+//Colores
+
+$primario: #72038a;
+$secundario: #00246c;
+
+$negro: #000;
+$blanco: #fff;
+$gris: #e2e2e2;
+
+//fuentes
+
+@font-face {
+  font-family: Roboto;
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url(../fonts/Oswald-VariableFont_wght.ttf);
+}
+
+$fuente-principal: Roboto;
+$fuente-secundaria: Oswald;
+
+//Tamaños de letra
+
+$s: 1rem;
+$m: 2rem;
+$l: 3rem;
+$xl: 4rem;
