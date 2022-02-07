@@ -40,7 +40,6 @@ body {
   }
 }
 
-
 .nav {
   width: 100%;
   align-items: center;
@@ -57,17 +56,17 @@ body {
     padding: 10px 0px;
     flex-direction: column;
     gap: 20px;
-    position:initial;
+    position: initial;
   }
 
-  .icon{
+  .icon {
     display: none;
     @include media.mobile() {
       display: block;
-      position:absolute;
+      position: absolute;
       left: 30px;
       top: 55px;
-      i{
+      i {
         color: black;
         font-size: var.$m;
       }
@@ -92,16 +91,16 @@ body {
     @include media.mobile() {
       opacity: 0;
       visibility: hidden;
-      transition: visibility 0s,opacity 0.5s linear;
+      transition: visibility 0s, opacity 0.5s linear;
       flex-direction: column;
       // display: none;
-      height:0;
+      height: 0;
     }
-    &--mostrar{
+    &--mostrar {
       // display:flex;
       height: 100%;
       opacity: 1;
-      visibility:visible;
+      visibility: visible;
     }
     &__boton {
       padding: 0 15px;
@@ -132,7 +131,6 @@ body {
         transform: scale(0.98);
       }
     }
-    
   }
 
   &--oscura {
@@ -284,26 +282,39 @@ img {
     display: flex;
     justify-content: center;
     gap: 80px;
-    
-    .redes{
+    @media all and (max-width: 768px) {
+      gap: 40px;
+    }
+
+    .redes {
       font-size: var.$l;
-      
-      a{
+
+      a {
         text-decoration: none;
-        
+        color: #4267B2;
+        &:active {
+          color: #4267B2;
+        }
       }
     }
   }
 }
 .fa-instagram {
   color: transparent;
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
   background-clip: text;
 }
 .fa-twitter {
-  color: #00ACEE;
+  color: #00acee;
 }
-.fa-map-marker-alt{
+.fa-map-marker-alt {
   color: red;
 }
 .footer--grid {
@@ -392,13 +403,13 @@ img {
     }
   }
 
-  &__alumnado{
-    height:50px;
+  &__alumnado {
+    height: 50px;
     line-height: 50px;
     text-align: center;
     grid-column: 1/-1;
     font-size: 1.2rem;
     border-top: 2px solid color.adjust(var.$gris, $alpha: 1);
-    width:100%;
+    width: 100%;
   }
 }
