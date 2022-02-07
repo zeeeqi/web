@@ -3,7 +3,6 @@ window.addEventListener('resize', controlarTamanoWindows);
 function init() {
     window.onscroll = function () { scrollFunction() };
     scrollFunction();
-    myFunction();
     // controlarTamanoWindows();
 }
 // When the user scrolls down 50px from the top of the document, resize the header's font size
