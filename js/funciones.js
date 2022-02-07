@@ -26,11 +26,11 @@ function scrollFunction() {
 }
 function myFunction() {
     var x = document.getElementById("nav__enlaces");
-    // if (x.style.display === "flex") {
-    //   x.style.display = "none";
-    // } else {
-    //   x.style.display = "flex";
-    // }
+    if (x.style.display === "flex") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "flex";
+    }
 
     x.classList.toggle("nav__enlaces--mostrar");
   }
