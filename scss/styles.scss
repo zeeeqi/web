@@ -93,7 +93,7 @@ body {
       visibility: hidden;
       transition: visibility 0s, opacity 0.5s linear;
       flex-direction: column;
-      // display: none;
+      display: none;
       height: 0;
     }
     &--mostrar {
