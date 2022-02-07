@@ -1,8 +1,10 @@
 window.addEventListener('load', init);
-
+window.addEventListener('resize', controlarTamanoWindows);
 function init() {
     window.onscroll = function () { scrollFunction() };
     scrollFunction();
+    myFunction();
+    // controlarTamanoWindows();
 }
 // When the user scrolls down 50px from the top of the document, resize the header's font size
 
@@ -21,4 +23,25 @@ function scrollFunction() {
 
         up.style.display = "none";
     }
+}
+function myFunction() {
+    var x = document.getElementById("nav__enlaces");
+    // if (x.style.display === "flex") {
+    //   x.style.display = "none";
+    // } else {
+    //   x.style.display = "flex";
+    // }
+
+    x.classList.toggle("nav__enlaces--mostrar");
+  }
+
+function controlarTamanoWindows() {
+  var x = document.getElementById("nav__enlaces");
+  if (window.innerWidth>=768) {
+    x.style.display = "flex";
+  } 
+  // else{
+  //   x.style.display = "none";
+  // }
+
 }

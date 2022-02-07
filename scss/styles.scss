@@ -40,6 +40,7 @@ body {
   }
 }
 
+
 .nav {
   width: 100%;
   align-items: center;
@@ -55,9 +56,23 @@ body {
     height: auto;
     padding: 10px 0px;
     flex-direction: column;
+    gap: 20px;
     position:initial;
   }
 
+  .icon{
+    display: none;
+    @include media.mobile() {
+      display: block;
+      position:absolute;
+      left: 30px;
+      top: 55px;
+      i{
+        color: black;
+        font-size: var.$m;
+      }
+    }
+  }
   &__logo {
     background-image: url(../img/logo.png);
     background-position: center;
@@ -74,10 +89,19 @@ body {
     height: 100%;
     justify-content: space-around;
     max-width: 400px;
-
     @include media.mobile() {
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility 0s,opacity 0.5s linear;
       flex-direction: column;
-      display: none;
+      // display: none;
+      height:0;
+    }
+    &--mostrar{
+      // display:flex;
+      height: 100%;
+      opacity: 1;
+      visibility:visible;
     }
     &__boton {
       padding: 0 15px;
@@ -108,6 +132,7 @@ body {
         transform: scale(0.98);
       }
     }
+    
   }
 
   &--oscura {
@@ -255,10 +280,32 @@ img {
 
   &__organiza {
     background-image: url(../img/organiza.png);
-    background-position: top left;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    
+    .redes{
+      font-size: var.$l;
+      
+      a{
+        text-decoration: none;
+        
+      }
+    }
   }
 }
-
+.fa-instagram {
+  color: transparent;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+}
+.fa-twitter {
+  color: #00ACEE;
+}
+.fa-map-marker-alt{
+  color: red;
+}
 .footer--grid {
   padding: 20px;
   display: grid;
